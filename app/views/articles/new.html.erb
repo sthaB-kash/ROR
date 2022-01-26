@@ -1,0 +1,22 @@
+<h2>New Article</h2>
+
+<%= form_with model: @article do |form|%>
+  <div>
+    <div><%= form.label :title%></div>
+    <%= form.text_field :title%>
+    <div class="text-red">
+      <% @article.errors.full_messages_for(:title).each do |message|%> 
+        <%= message%> 
+      <% end%>
+    </div>
+  </div>
+  <div>
+    <div> <%= form.label :body%></div>
+    <%= form.text_area :body%>
+    <div class="text-red">
+      <% @article.errors.full_messages_for(:body).each do |message|%><%= message%><%end%>
+    </div>
+  </div>
+
+  <div><%= form.submit %></div>
+<%end%>

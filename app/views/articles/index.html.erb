@@ -1,4 +1,9 @@
+<div>&nbsp;</div>
 <h1>Articles</h1>
+
+<div class="d-flex align-items-center justify-content-end">
+    <%= link_to "New Article", new_article_path, class: "btn btn-primary"%>
+</div>
 
 <ul>
   <% @articles.each do |article|%>
@@ -7,3 +12,4 @@
     </li>
   <% end %>
 </ul>
+
