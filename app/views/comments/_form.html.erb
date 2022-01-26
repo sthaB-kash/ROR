@@ -1,0 +1,13 @@
+ <section class="add-comment">
+  <hr/>
+  <h4>Add Comment:</h4>
+  <%= form_with model: [@article, @article.comments.build ] do |form|%>
+    <div>
+      <div><%= form.label :commenter%></div>
+      <div><%= form.text_field :commenter%></div>
+      <div><%= form.label :body%></div>
+      <div><%= form.text_area :body %>
+    </div>
+    <div><%= form.submit%></div>
+  <% end %>
+</section>

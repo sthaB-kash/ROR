@@ -1,36 +1,10 @@
 
 
-<div class="container py-5">
+<main class="container py-5">
   <h2><%= @article.title %></h2>
   <p> <%= @article.body%></p>
 
-
-  <section class="comments">
-    <hr/>
-    <h5>Comments</h5>
-    <% if @article.comments.empty?%>
-      <p>no comments yet</p>
-    <% else%>
-      <%@article.comments.each do |comment|%>
-      <div><strong>Commenter: </strong><%= comment.commenter%></div>
-      <div><%= comment.body %></div>
-      <%end%>
-    <% end %>
-  </section>
+  <%= render "comments/comment", comments: @article.comments%>
   
-
-  <section class="add-comment">
-    <hr/>
-    <h4>Add Comment:</h4>
-    <%= form_with model: [@article, @article.comments.build ] do |form|%>
-      <div>
-        <div><%= form.label :commenter%></div>
-        <div><%= form.text_field :commenter%></div>
-        <div><%= form.label :body%></div>
-        <div><%= form.text_area :body %>
-      </div>
-      <div><%= form.submit%></div>
-    <% end %>
-  </div>
-
-  </section>
+  <%= render "comments/form"%>
+</main>

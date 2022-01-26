@@ -1,0 +1,12 @@
+<section class="comments">
+  <hr/>
+  <h5>Comments</h5>
+  <% if comments.empty?%>
+    <p>no comments yet</p>
+  <% else%>
+    <%comments.each do |comment|%>
+    <div><strong>Commenter: </strong><%= comment.commenter%></div>
+    <div><%= comment.body %></div>
+    <%end%>
+  <% end %>
+</section>
