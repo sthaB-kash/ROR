@@ -3,6 +3,8 @@
 # root "articles#index"
 
 Rails.application.routes.draw do
+  # root "main#index"
+  root "articles#index"
   get "/about-us", to: "about#index", as: :about #get "/about", to: "about#index" 
-  root "main#index"
+  get "/articles", to: "articles#index"
 end
