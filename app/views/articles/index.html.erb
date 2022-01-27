@@ -6,9 +6,13 @@
 </div>
 
 <section>
+  <h6>Our blog has <%= Article.public_count%> public , <%= Article.private_count%> private, and <%=Article.archived_count%> archived articles.</h6>
   <% @articles.each do |article|%>
     <div class="d-flex py-1">
-      <%= link_to article.title, article, class: " flex-grow-1"%>
+      <div class="flex-grow-1">
+        <%= link_to article.title, article%>
+        <span class="badge bg-primary"><%= article.status%></span>
+      </div>
       <%= link_to "Edit", edit_article_path(article), class: "btn btn-sm btn-secondary"%>
       <span>&nbsp;</span>
       <%= link_to "Delete", article_path(article), data: {
