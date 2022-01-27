@@ -7,7 +7,9 @@
       <div><%= form.text_field :commenter%></div>
       <div><%= form.label :body%></div>
       <div><%= form.text_area :body %>
+      <div><%= form.label :status%> <%=form.select :status, ["private", "public", "archived"], selected: "public"%></div>
     </div>
+     
     <div><%= form.submit%></div>
   <% end %>
 </section>
