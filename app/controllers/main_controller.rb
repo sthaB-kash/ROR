@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MainController < ApplicationController
   def index
-    flash[:notice] = "loggedin successfully"
+    flash[:notice] = 'loggedin successfully'
   end
 end
