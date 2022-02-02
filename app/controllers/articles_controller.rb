@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   http_basic_authenticate_with name: 'bikash', password: 'admin', except: %i[index show]
-  before_action :set_params, only: %i[edit show update destroy]
+  before_action :set_params, except: %i[index new create]
 
   def index
     @articles = Article.all
@@ -26,7 +26,6 @@ class ArticlesController < ApplicationController
   def edit; end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
       redirect_to @article
     else
@@ -52,6 +51,7 @@ class ArticlesController < ApplicationController
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
+
   helper_method :current_user
 
   def authorize
